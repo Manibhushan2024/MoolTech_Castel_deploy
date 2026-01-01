@@ -1,0 +1,71 @@
+[
+  {
+    "slug": "passenger-elevators",
+    "name": "Passenger Elevators",
+    "shortDesc": "Safe and reliable elevators for residential and commercial buildings",
+    "imagePath": "/images/services/passenger.jpg",
+    "bullets": [
+      "Capacity: 1000-2500 kg",
+      "Speed: Up to 4 m/s",
+      "Energy efficient LED lighting",
+      "Advanced safety features",
+      "Quiet operation"
+    ],
+    "faq": [
+      {
+        "q": "What is the standard capacity?",
+        "a": "Standard capacity ranges from 1000 kg to 2500 kg depending on the model."
+      },
+      {
+        "q": "How long is the warranty?",
+        "a": "All passenger elevators come with 5 years comprehensive warranty."
+      }
+    ]
+  },
+  {
+    "slug": "freight-elevators",
+    "name": "Freight Elevators",
+    "shortDesc": "Heavy-duty elevators for industrial and commercial cargo transport",
+    "imagePath": "/images/services/freight.jpg",
+    "bullets": [
+      "Capacity: Up to 5000 kg",
+      "Reinforced steel construction",
+      "Durable non-slip flooring",
+      "Advanced load monitoring",
+      "Smooth acceleration"
+    ],
+    "faq": [
+      {
+        "q": "What is the maximum load?",
+        "a": "Freight elevators can handle up to 5000 kg depending on design specifications."
+      },
+      {
+        "q": "Is maintenance included?",
+        "a": "Yes, preventive maintenance is included in our service packages."
+      }
+    ]
+  },
+  {
+    "slug": "home-elevators",
+    "name": "Home Elevators",
+    "shortDesc": "Compact and elegant elevators for residential properties",
+    "imagePath": "/images/services/home.jpg",
+    "bullets": [
+      "Capacity: 500-1000 kg",
+      "Space-saving design",
+      "Whisper-quiet operation",
+      "Emergency power backup",
+      "Stylish finishes"
+    ],
+    "faq": [
+      {
+        "q": "Can it fit in small spaces?",
+        "a": "Yes, home elevators are designed to fit in spaces as small as 1.5m x 1.5m."
+      },
+      {
+        "q": "Is installation complicated?",
+        "a": "Our expert team handles the complete installation process seamlessly."
+      }
+    ]
+  }
+]

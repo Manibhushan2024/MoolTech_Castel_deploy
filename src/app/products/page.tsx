@@ -1,0 +1,52 @@
+import Link from "next/link"
+import { getProducts } from "@/lib/content"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Elevator Products - CastleElevator",
+  description: "Browse our range of passenger, freight, and home elevators.",
+}
+
+export default function Products() {
+  const products = getProducts()
+
+  return (
+    <div>
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-800 dark:to-blue-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h1 className="text-4xl font-bold mb-4">Elevator Products</h1>
+          <p className="text-xl opacity-90">
+            Explore our complete range of elevator solutions
+          </p>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <Link
+                key={product.slug}
+                href={`/products/${product.slug}`}
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition overflow-hidden cursor-pointer"
+              >
+                <div className="h-48 bg-gradient-to-br from-orange-400 to-orange-600 dark:from-orange-600 dark:to-orange-800"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                    {product.name}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {product.shortDesc}
+                  </p>
+                  <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold">
+                    Learn More ?
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

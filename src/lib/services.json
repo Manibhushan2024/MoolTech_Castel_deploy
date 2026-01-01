@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "installation",
+    "name": "Elevator Installation",
+    "shortDesc": "Professional installation of new elevator systems",
+    "imagePath": "/images/services/installation.jpg",
+    "inclusions": [
+      "Site assessment and planning",
+      "Structural modifications if needed",
+      "Equipment installation",
+      "Safety testing and certification",
+      "Staff training"
+    ],
+    "processSteps": [
+      "Initial consultation and site survey",
+      "Design and engineering",
+      "Equipment procurement",
+      "Construction and installation",
+      "Testing and commissioning"
+    ],
+    "faq": [
+      {
+        "q": "How long does installation take?",
+        "a": "Typically 4-8 weeks depending on complexity and building type."
+      },
+      {
+        "q": "Do you handle structural modifications?",
+        "a": "Yes, we manage all structural work required for proper installation."
+      }
+    ]
+  },
+  {
+    "slug": "maintenance",
+    "name": "Preventive Maintenance",
+    "shortDesc": "Regular maintenance to ensure optimal elevator performance",
+    "imagePath": "/images/services/maintenance.jpg",
+    "inclusions": [
+      "Monthly inspections",
+      "Lubrication of moving parts",
+      "Safety equipment testing",
+      "Wear part replacement",
+      "24/7 emergency support"
+    ],
+    "processSteps": [
+      "Scheduled monthly visits",
+      "Component inspection",
+      "Preventive repairs",
+      "Documentation and reporting",
+      "Emergency response"
+    ],
+    "faq": [
+      {
+        "q": "How often should elevators be maintained?",
+        "a": "We recommend monthly preventive maintenance for optimal performance and safety."
+      },
+      {
+        "q": "What if there is an emergency?",
+        "a": "Our 24/7 emergency hotline ensures we reach you within 30 minutes in most areas."
+      }
+    ]
+  },
+  {
+    "slug": "modernization",
+    "name": "Elevator Modernization",
+    "shortDesc": "Upgrade existing elevators with modern technology and safety features",
+    "imagePath": "/images/services/modernization.jpg",
+    "inclusions": [
+      "Control system upgrade",
+      "Door modernization",
+      "Cabin refurbishment",
+      "Safety feature enhancement",
+      "Energy efficiency improvement"
+    ],
+    "processSteps": [
+      "Assessment of existing system",
+      "Modernization plan development",
+      "Phased upgrade implementation",
+      "Testing and certification",
+      "Handover and training"
+    ],
+    "faq": [
+      {
+        "q": "Why should I modernize?",
+        "a": "Modernization improves safety, efficiency, and reduces long-term maintenance costs."
+      },
+      {
+        "q": "Will the elevator be out of service?",
+        "a": "We work on schedules that minimize downtime, often completing work during off-hours."
+      }
+    ]
+  }
+]

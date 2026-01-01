@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Bangalore",
+    "shortDesc": "Serving IT corridors and residential zones with expert elevator solutions"
+  },
+  {
+    "name": "Delhi NCR",
+    "shortDesc": "Comprehensive coverage across Delhi, Noida, and Gurgaon"
+  },
+  {
+    "name": "Mumbai",
+    "shortDesc": "High-rise solutions for commercial and residential developments"
+  },
+  {
+    "name": "Pune",
+    "shortDesc": "Supporting IT parks and premium residential communities"
+  },
+  {
+    "name": "Hyderabad",
+    "shortDesc": "Modern elevator services for growing commercial sector"
+  },
+  {
+    "name": "Chennai",
+    "shortDesc": "Reliable installation and maintenance services"
+  }
+]

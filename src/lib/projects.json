@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "tech-tower-bangalore",
+    "title": "Tech Tower, Bangalore",
+    "location": "Bangalore",
+    "type": "Commercial",
+    "imagePath": "/images/projects/tech-tower.jpg",
+    "shortDesc": "Installation of 12 high-speed passenger elevators in a 25-story tech building"
+  },
+  {
+    "slug": "sunrise-residency-delhi",
+    "title": "Sunrise Residency, Delhi",
+    "location": "Delhi",
+    "type": "Residential",
+    "imagePath": "/images/projects/sunrise.jpg",
+    "shortDesc": "Modernization of 8 elevators in a 18-story residential complex"
+  },
+  {
+    "slug": "metro-mall-mumbai",
+    "title": "Metro Mall, Mumbai",
+    "location": "Mumbai",
+    "type": "Commercial",
+    "imagePath": "/images/projects/metro-mall.jpg",
+    "shortDesc": "Installation of 6 freight elevators and 10 passenger elevators in a shopping mall"
+  },
+  {
+    "slug": "green-gardens-pune",
+    "title": "Green Gardens, Pune",
+    "location": "Pune",
+    "type": "Residential",
+    "imagePath": "/images/projects/green-gardens.jpg",
+    "shortDesc": "Complete elevator system setup in a luxury residential community with 4 towers"
+  }
+]
