@@ -1,0 +1,39 @@
+runtime: nodejs20
+env: standard
+instance_class: F2
+entrypoint: npm run start
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 5
+
+env_variables:
+  NODE_ENV: "production"
+  NEXT_TELEMETRY_DISABLED: "1"
+  RATE_LIMIT_REQUESTS: "5"
+  RATE_LIMIT_WINDOW_MS: "3600000"
+  RESEND_API_KEY: "re_3bdKYtcC_9q6WoajAYeZfSdrf8hPUcX8x"
+  ADMIN_EMAIL: "castelelevator@gmail.com"
+  SUPPORT_EMAIL: "support@castelelevator.com"
+  NEXT_PUBLIC_APP_URL: "https://castleelevator-prod.el.r.appspot.com"
+  NEXT_PUBLIC_API_URL: "https://castleelevator-prod.el.r.appspot.com/api"
+
+handlers:
+  - url: /.*
+    script: auto
+
+skip_files:
+  - node_modules/
+  - .git/
+  - .gitignore
+  - .gcloudignore
+  - .github/
+  - .next/cache/
+  - .next/static/
+  - dist/
+  - build/
+  - coverage/
+  - tests/
+  - test/
+  - tmp/
+  - *.log

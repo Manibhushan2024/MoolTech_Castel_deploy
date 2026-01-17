@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200" role="img" aria-label="CastleElevator logo dark mode">
+  <rect width="600" height="200" fill="#0B1F3B"></rect>
+
+  <path fill="#FFFFFF" fill-rule="evenodd" transform="translate(40 64) scale(1.4375)" d="
+        M 50 53.449
+        A 28 28 0 1 1 50 10.551
+        L 43.570 18.211
+        A 18 18 0 1 0 43.570 45.789
+        Z
+        M 32 16
+        L 42 27
+        L 37 27
+        L 37 46
+        L 27 46
+        L 27 27
+        L 22 27
+        Z
+        "></path>
+
+  <text x="140" y="110" font-family="Inter, Montserrat, Poppins, 'Segoe UI', Arial, sans-serif" font-size="72" letter-spacing="-1" dominant-baseline="middle" font-weight="800" fill="#FFFFFF">astleElevator</text>
+</svg>
