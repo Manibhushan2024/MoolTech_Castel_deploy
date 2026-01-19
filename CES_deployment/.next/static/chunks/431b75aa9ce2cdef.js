@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,87001,o=>{"use strict";o.i(43476),o.i(932),o.i(22016),o.i(57688),o.i(71645);let i=Error("Cannot find module '@/lib/blog-posts.json'");throw i.code="MODULE_NOT_FOUND",i}]);
