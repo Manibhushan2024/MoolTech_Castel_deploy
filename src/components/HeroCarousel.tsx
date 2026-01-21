@@ -22,7 +22,8 @@ const slides: Slide[] = [
   {
     id: 1,
     title: "Professional Elevator Installation",
-    description: "Safe, reliable, and modern elevator systems for every building",
+    description:
+      "Safe, reliable, and modern elevator systems for every building",
     type: "image",
     src: "/images/home/Home-page-01.png",
   },
@@ -36,7 +37,8 @@ const slides: Slide[] = [
   {
     id: 3,
     title: "Modern Elevator Modernization",
-    description: "Upgrade your elevators with latest technology and safety features",
+    description:
+      "Upgrade your elevators with latest technology and safety features",
     type: "image",
     src: "/images/home/Home-page-03.png",
   },
@@ -57,7 +59,7 @@ export function HeroCarousel() {
   // Auto-advance slides
   useEffect(() => {
     const currentSlideData = slides[currentSlide]
-    
+
     // For video slides, wait for video to end before advancing
     if (currentSlideData.type === "video" && videoRef.current) {
       const video = videoRef.current
@@ -71,11 +73,11 @@ export function HeroCarousel() {
         }, 10000)
         return () => clearTimeout(timer)
       })
-      
+
       const handleVideoEnd = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length)
       }
-      
+
       video.addEventListener("ended", handleVideoEnd)
       return () => video.removeEventListener("ended", handleVideoEnd)
     } else {
@@ -131,7 +133,9 @@ export function HeroCarousel() {
           )}
 
           {/* Overlay - lighter for video */}
-          <div className={`absolute inset-0 ${slide.type === "video" ? "bg-black/20" : "bg-black/40"}`}></div>
+          <div
+            className={`absolute inset-0 ${slide.type === "video" ? "bg-black/20" : "bg-black/40"}`}
+          ></div>
 
           {/* Content - Only show for images, not video */}
           {slide.type === "image" && (
@@ -162,14 +166,39 @@ export function HeroCarousel() {
         >
           {isMuted ? (
             // Muted icon
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"
+              />
             </svg>
           ) : (
             // Unmuted icon
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+              />
             </svg>
           )}
         </button>
@@ -219,10 +248,10 @@ export function HeroCarousel() {
 
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-20">
-        <div 
+        <div
           className="h-full bg-blue-500 transition-all duration-300"
-          style={{ 
-            width: `${((currentSlide + 1) / slides.length) * 100}%` 
+          style={{
+            width: `${((currentSlide + 1) / slides.length) * 100}%`,
           }}
         />
       </div>

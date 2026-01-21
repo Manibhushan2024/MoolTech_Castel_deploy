@@ -4,7 +4,8 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Our Projects - CastleElevator",
-  description: "See our completed elevator projects in Delhi, Jammu, Uttar Pradesh, and Haryana.",
+  description:
+    "See our completed elevator projects in Delhi, Jammu, Uttar Pradesh, and Haryana.",
 }
 
 export default function Projects() {
@@ -17,7 +18,7 @@ export default function Projects() {
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -28,10 +29,14 @@ export default function Projects() {
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <p className="text-lg font-semibold">✓ 90+ Projects Completed</p>
+                <p className="text-lg font-semibold">
+                  ✓ 90+ Projects Completed
+                </p>
               </div>
               <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <p className="text-lg font-semibold">✓ 1000+ Buildings Served</p>
+                <p className="text-lg font-semibold">
+                  ✓ 1000+ Buildings Served
+                </p>
               </div>
             </div>
           </div>
@@ -47,13 +52,22 @@ export default function Projects() {
               Featured Project Showcase
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Discover our successful elevator installations and modernizations across major cities
+              Discover our successful elevator installations and modernizations
+              across major cities
             </p>
             <div className="mt-8 flex justify-center gap-4 flex-wrap">
-              <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full font-semibold">🏙️ Delhi 50+</span>
-              <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full font-semibold">⛰️ Jammu 20+</span>
-              <span className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full font-semibold">📍 UP 10+</span>
-              <span className="px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full font-semibold">🚀 Haryana 10+</span>
+              <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full font-semibold">
+                🏙️ Delhi 50+
+              </span>
+              <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full font-semibold">
+                ⛰️ Jammu 20+
+              </span>
+              <span className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full font-semibold">
+                📍 UP 10+
+              </span>
+              <span className="px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full font-semibold">
+                🚀 Haryana 10+
+              </span>
             </div>
           </div>
 
@@ -74,7 +88,7 @@ export default function Projects() {
                     height={280}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  
+
                   {/* Status Badge */}
                   <div className="absolute top-4 right-4 z-20">
                     <span className="bg-green-500 text-white px-4 py-2 rounded-full font-bold text-sm flex items-center gap-1">
@@ -178,7 +192,7 @@ export default function Projects() {
           <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             Our Presence by Region
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
@@ -186,36 +200,38 @@ export default function Projects() {
                 projects: "50 Projects",
                 description: "Commercial & Residential",
                 count: "50",
-                color: "from-blue-500 to-blue-600"
+                color: "from-blue-500 to-blue-600",
               },
               {
                 region: "⛰️ Jammu & Kashmir",
                 projects: "20 Projects",
                 description: "Specialized Terrain",
                 count: "20",
-                color: "from-purple-500 to-purple-600"
+                color: "from-purple-500 to-purple-600",
               },
               {
                 region: "📍 Uttar Pradesh",
                 projects: "10 Projects",
                 description: "Commercial & Retail",
                 count: "10",
-                color: "from-green-500 to-green-600"
+                color: "from-green-500 to-green-600",
               },
               {
                 region: "🚀 Haryana",
                 projects: "10 Projects",
                 description: "Industrial Solutions",
                 count: "10",
-                color: "from-orange-500 to-orange-600"
+                color: "from-orange-500 to-orange-600",
               },
             ].map((item, idx) => (
               <div
                 key={idx}
                 className="relative p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
               >
-                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${item.color} rounded-full -mr-8 -mt-8 opacity-20 group-hover:scale-150 transition-transform duration-300`}></div>
-                
+                <div
+                  className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${item.color} rounded-full -mr-8 -mt-8 opacity-20 group-hover:scale-150 transition-transform duration-300`}
+                ></div>
+
                 <div className="relative z-10">
                   <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
                     {item.region}
@@ -226,7 +242,7 @@ export default function Projects() {
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
                     {item.description}
                   </p>
-                  
+
                   <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-4">
                     <div
                       className={`bg-gradient-to-r ${item.color} h-3 rounded-full transition-all duration-500`}

@@ -1,19 +1,25 @@
 /**
  * Toast Notification System
  * Global state management for toast notifications (no page reload!)
- * 
+ *
  * Usage in any component:
  * import { useToast } from '@/lib/hooks/useToast'
- * 
+ *
  * const { addToast } = useToast()
  * addToast('Success message', 'success')
  */
 
-'use client'
+"use client"
 
-import { createContext, useContext, useState, useCallback, ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  ReactNode,
+} from "react"
 
-export type ToastType = 'success' | 'error' | 'loading' | 'info'
+export type ToastType = "success" | "error" | "loading" | "info"
 
 export interface Toast {
   id: string
@@ -39,7 +45,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const addToast = useCallback(
-    (message: string, type: ToastType = 'info', duration = 5000) => {
+    (message: string, type: ToastType = "info", duration = 5000) => {
       const id = Date.now().toString()
       const toast: Toast = { id, message, type, duration }
 
@@ -71,7 +77,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 export function useToast() {
   const context = useContext(ToastContext)
   if (!context) {
-    throw new Error('useToast must be used within ToastProvider')
+    throw new Error("useToast must be used within ToastProvider")
   }
   return context
 }

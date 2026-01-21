@@ -39,7 +39,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const product = getProductBySlug(slug)
-  
+
   return {
     title: product?.title || "Product Not Found",
     description: product?.shortDesc || "CastleElevator product",
@@ -79,14 +79,21 @@ export default async function ProductPage({
       <section className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 dark:from-blue-900 dark:via-blue-800 dark:to-blue-950 text-white py-20 overflow-hidden">
         {/* Decorative blob background */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <Link href="/products" className="text-blue-200 hover:text-white mb-6 inline-flex items-center gap-2 transition-colors">
+          <Link
+            href="/products"
+            className="text-blue-200 hover:text-white mb-6 inline-flex items-center gap-2 transition-colors"
+          >
             ← Back to Products
           </Link>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">{product.title}</h1>
-          <p className="text-xl md:text-2xl opacity-90 max-w-2xl">{product.shortDesc}</p>
-          
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            {product.title}
+          </h1>
+          <p className="text-xl md:text-2xl opacity-90 max-w-2xl">
+            {product.shortDesc}
+          </p>
+
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="tel:+918285266082"
@@ -118,7 +125,7 @@ export default async function ProductPage({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
             </div>
-            
+
             <div>
               <h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
                 {product.name}
@@ -126,12 +133,17 @@ export default async function ProductPage({
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 {product.overview}
               </p>
-              
+
               <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-600 p-6 rounded-lg mb-8">
-                <h3 className="font-bold text-lg mb-3 text-gray-900 dark:text-white">✓ Why Choose This Product?</h3>
+                <h3 className="font-bold text-lg mb-3 text-gray-900 dark:text-white">
+                  ✓ Why Choose This Product?
+                </h3>
                 <ul className="space-y-2">
                   {product.features.slice(0, 3).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                    >
                       <span className="text-blue-600 font-bold">✓</span>
                       <span>{feature}</span>
                     </li>
@@ -162,10 +174,14 @@ export default async function ProductPage({
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Specifications</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Detailed technical specifications for optimal performance</p>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+              Specifications
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Detailed technical specifications for optimal performance
+            </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.entries(product.specifications).map(([key, value], idx) => (
               <div
@@ -190,9 +206,11 @@ export default async function ProductPage({
             <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               ✨ Premium Features
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Advanced technology and innovative design</p>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Advanced technology and innovative design
+            </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {product.features.map((feature, idx) => (
               <div
@@ -213,10 +231,14 @@ export default async function ProductPage({
       <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">💡 Key Benefits</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Transform your property with our advanced solutions</p>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+              💡 Key Benefits
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Transform your property with our advanced solutions
+            </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {product.benefits.map((benefit, idx) => (
               <div
@@ -226,7 +248,9 @@ export default async function ProductPage({
                 <div className="absolute top-0 right-0 w-20 h-20 bg-blue-600 rounded-full -mr-8 -mt-8 opacity-10"></div>
                 <div className="relative z-10">
                   <div className="text-4xl mb-4">⭐</div>
-                  <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-white">{benefit}</h3>
+                  <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-white">
+                    {benefit}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -238,10 +262,14 @@ export default async function ProductPage({
       <section className="py-20 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">📍 Perfect For</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Ideal applications and use cases</p>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+              📍 Perfect For
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Ideal applications and use cases
+            </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {product.applications.map((app, idx) => (
               <div
@@ -249,7 +277,9 @@ export default async function ProductPage({
                 className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl hover:shadow-lg transition-all duration-300 border border-green-200 dark:border-green-900"
               >
                 <div className="text-3xl mb-3">🏢</div>
-                <p className="font-semibold text-gray-900 dark:text-white">{app}</p>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  {app}
+                </p>
               </div>
             ))}
           </div>
@@ -262,7 +292,9 @@ export default async function ProductPage({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white p-10 rounded-2xl shadow-2xl">
               <div className="text-5xl mb-4">✓</div>
-              <h3 className="text-2xl font-bold mb-4">Comprehensive Warranty</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Comprehensive Warranty
+              </h3>
               <p className="text-lg opacity-90 mb-6">{product.warranty}</p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
@@ -276,7 +308,7 @@ export default async function ProductPage({
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-10 rounded-2xl shadow-2xl">
               <div className="text-5xl mb-4">🔧</div>
               <h3 className="text-2xl font-bold mb-4">Maintenance & Support</h3>
@@ -300,11 +332,14 @@ export default async function ProductPage({
       {/* Final CTA - Modern */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-900 dark:to-blue-950 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-5xl font-bold mb-6">Ready to Upgrade Your Building?</h2>
+          <h2 className="text-5xl font-bold mb-6">
+            Ready to Upgrade Your Building?
+          </h2>
           <p className="text-xl opacity-90 mb-12 max-w-2xl mx-auto">
-            Join thousands of satisfied customers with CastleElevator {product.name}. Experience reliability, safety, and innovation.
+            Join thousands of satisfied customers with CastleElevator{" "}
+            {product.name}. Experience reliability, safety, and innovation.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href="tel:+918285266082"
@@ -319,10 +354,13 @@ export default async function ProductPage({
               📧 Request Free Quote
             </Link>
           </div>
-          
+
           <div className="mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-lg max-w-2xl mx-auto">
             <p className="font-semibold mb-3">🎁 Special Offer:</p>
-            <p className="text-lg">Free consultation and site assessment for all new inquiries. Limited time offer!</p>
+            <p className="text-lg">
+              Free consultation and site assessment for all new inquiries.
+              Limited time offer!
+            </p>
           </div>
         </div>
       </section>

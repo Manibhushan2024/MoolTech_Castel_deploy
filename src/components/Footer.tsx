@@ -11,7 +11,10 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold mb-2">Subscribe for Updates</h3>
-              <p className="text-blue-100">Get the latest elevator tips, maintenance guides, and industry news.</p>
+              <p className="text-blue-100">
+                Get the latest elevator tips, maintenance guides, and industry
+                news.
+              </p>
             </div>
             <form
               onSubmit={(e) => {
@@ -19,10 +22,15 @@ export function Footer() {
                 const formData = new FormData(e.currentTarget)
                 const email = formData.get("newsletter_email") as string
                 if (email) {
-                  const subscribers = JSON.parse(localStorage.getItem("castle_blog_subscribers") || "[]")
+                  const subscribers = JSON.parse(
+                    localStorage.getItem("castle_blog_subscribers") || "[]"
+                  )
                   if (!subscribers.includes(email)) {
                     subscribers.push(email)
-                    localStorage.setItem("castle_blog_subscribers", JSON.stringify(subscribers))
+                    localStorage.setItem(
+                      "castle_blog_subscribers",
+                      JSON.stringify(subscribers)
+                    )
                   }
                   alert("✅ Thank you for subscribing!")
                   ;(e.currentTarget as HTMLFormElement).reset()
@@ -64,27 +72,42 @@ export function Footer() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <Link href="/about" className="hover:text-white transition-colors">
+                  <Link
+                    href="/about"
+                    className="hover:text-white transition-colors"
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="hover:text-white transition-colors"
+                  >
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products" className="hover:text-white transition-colors">
+                  <Link
+                    href="/products"
+                    className="hover:text-white transition-colors"
+                  >
                     Products
                   </Link>
                 </li>
                 <li>
-                  <Link href="/projects" className="hover:text-white transition-colors">
+                  <Link
+                    href="/projects"
+                    className="hover:text-white transition-colors"
+                  >
                     Projects
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="hover:text-white transition-colors">
+                  <Link
+                    href="/blog"
+                    className="hover:text-white transition-colors"
+                  >
                     Blog
                   </Link>
                 </li>
@@ -94,12 +117,18 @@ export function Footer() {
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <Link href="/service-areas" className="hover:text-white transition-colors">
+                  <Link
+                    href="/service-areas"
+                    className="hover:text-white transition-colors"
+                  >
                     Service Areas
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link
+                    href="/contact"
+                    className="hover:text-white transition-colors"
+                  >
                     Contact Us
                   </Link>
                 </li>
@@ -109,13 +138,19 @@ export function Footer() {
               <h4 className="font-semibold mb-4">Get in Touch</h4>
               <ul className="space-y-3 text-gray-400 text-sm">
                 <li>
-                  <a href="tel:+918285266082" className="flex items-center gap-2 hover:text-orange-400 transition-colors">
+                  <a
+                    href="tel:+918285266082"
+                    className="flex items-center gap-2 hover:text-orange-400 transition-colors"
+                  >
                     <span>📞</span>
                     <span>+91 828-5266-082</span>
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:support@castelelevator.com" className="flex items-center gap-2 hover:text-orange-400 transition-colors">
+                  <a
+                    href="mailto:support@castelelevator.com"
+                    className="flex items-center gap-2 hover:text-orange-400 transition-colors"
+                  >
                     <span>✉️</span>
                     <span>support@castelelevator.com</span>
                   </a>
@@ -126,31 +161,45 @@ export function Footer() {
 
           {/* FAQ Section */}
           <div className="mt-12 pt-8 border-t border-gray-800">
-            <h4 className="font-semibold mb-6 text-lg">Frequently Asked Questions</h4>
+            <h4 className="font-semibold mb-6 text-lg">
+              Frequently Asked Questions
+            </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <details className="text-gray-400 text-sm cursor-pointer group">
                 <summary className="font-semibold text-white group-hover:text-orange-400 transition-colors flex items-center gap-2">
                   <span>+</span> How often should I maintain my elevator?
                 </summary>
-                <p className="mt-3 ml-6 text-gray-500">We recommend monthly preventive maintenance for optimal performance and safety.</p>
+                <p className="mt-3 ml-6 text-gray-500">
+                  We recommend monthly preventive maintenance for optimal
+                  performance and safety.
+                </p>
               </details>
               <details className="text-gray-400 text-sm cursor-pointer group">
                 <summary className="font-semibold text-white group-hover:text-orange-400 transition-colors flex items-center gap-2">
                   <span>+</span> What is your service response time?
                 </summary>
-                <p className="mt-3 ml-6 text-gray-500">Our emergency team responds within 2 hours in most areas. 24/7 support hotline always available.</p>
+                <p className="mt-3 ml-6 text-gray-500">
+                  Our emergency team responds within 2 hours in most areas. 24/7
+                  support hotline always available.
+                </p>
               </details>
               <details className="text-gray-400 text-sm cursor-pointer group">
                 <summary className="font-semibold text-white group-hover:text-orange-400 transition-colors flex items-center gap-2">
                   <span>+</span> Do you provide installation services?
                 </summary>
-                <p className="mt-3 ml-6 text-gray-500">Yes! We provide complete elevator installation with all necessary certifications and compliance checks.</p>
+                <p className="mt-3 ml-6 text-gray-500">
+                  Yes! We provide complete elevator installation with all
+                  necessary certifications and compliance checks.
+                </p>
               </details>
               <details className="text-gray-400 text-sm cursor-pointer group">
                 <summary className="font-semibold text-white group-hover:text-orange-400 transition-colors flex items-center gap-2">
                   <span>+</span> What areas do you serve?
                 </summary>
-                <p className="mt-3 ml-6 text-gray-500">We serve Delhi, UP, Punjab, Jammu, Haryana, and Madhya Pradesh with professional service coverage.</p>
+                <p className="mt-3 ml-6 text-gray-500">
+                  We serve Delhi, UP, Punjab, Jammu, Haryana, and Madhya Pradesh
+                  with professional service coverage.
+                </p>
               </details>
             </div>
           </div>

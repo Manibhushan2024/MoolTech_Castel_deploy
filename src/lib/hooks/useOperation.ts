@@ -4,17 +4,17 @@
  * Usage in any component:
  *
  * const { execute, loading, error } = useOperation()
- * 
+ *
  * const handleSave = async () => {
  *   await execute('save', { id: 123, data: {...} })
  * }
  */
 
-'use client'
+"use client"
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback } from "react"
 
-export type OperationType = 'save' | 'ignore' | 'send' | 'draft'
+export type OperationType = "save" | "ignore" | "send" | "draft"
 
 interface OperationOptions {
   showToast?: boolean
@@ -23,7 +23,11 @@ interface OperationOptions {
 }
 
 interface UseOperationReturn {
-  execute: (operationType: OperationType, data: Record<string, unknown>, options?: OperationOptions) => Promise<void>
+  execute: (
+    operationType: OperationType,
+    data: Record<string, unknown>,
+    options?: OperationOptions
+  ) => Promise<void>
   loading: boolean
   error: string | null
   success: boolean
@@ -50,10 +54,10 @@ export function useOperation(): UseOperationReturn {
       setSuccess(false)
 
       try {
-        const response = await fetch('/api/operations', {
-          method: 'POST',
+        const response = await fetch("/api/operations", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             operationType,
@@ -83,7 +87,8 @@ export function useOperation(): UseOperationReturn {
 
         return
       } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'An error occurred'
+        const errorMessage =
+          err instanceof Error ? err.message : "An error occurred"
         setError(errorMessage)
 
         // Show error toast

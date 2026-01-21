@@ -11,21 +11,24 @@ export default function Blog() {
   const [categories, setCategories] = useState<string[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
-   
+
   useEffect(() => {
     // Initial load of blog posts from static JSON data
-     
+
     const blogs = blogPostsData as BlogPost[]
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setBlogPosts(blogs)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    const cats = Array.from(new Set(blogs.map((p: BlogPost) => p.category))).sort()
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+
+    const cats = Array.from(
+      new Set(blogs.map((p: BlogPost) => p.category))
+    ).sort()
+
     setCategories(cats as string[])
   }, [])
 
   const filteredPosts = blogPosts.filter((post) => {
-    const matchesCategory = selectedCategory === null || post.category === selectedCategory
+    const matchesCategory =
+      selectedCategory === null || post.category === selectedCategory
     const matchesSearch =
       searchQuery === "" ||
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -45,7 +48,8 @@ export default function Blog() {
               Insights & Guides
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
-              Elevator safety, maintenance, technology and project planning from industry professionals.
+              Elevator safety, maintenance, technology and project planning from
+              industry professionals.
             </p>
           </div>
         </div>
@@ -81,8 +85,18 @@ export default function Blog() {
                     className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold transition-all transform hover:scale-105"
                   >
                     Read Full Article
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -104,7 +118,9 @@ export default function Blog() {
           </div>
 
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">📂 Filter by Category</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              📂 Filter by Category
+            </h2>
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => setSelectedCategory(null)}
@@ -156,7 +172,9 @@ export default function Blog() {
                   </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3 text-xs text-gray-600 dark:text-gray-400 pb-3 border-b border-gray-200 dark:border-gray-700">
-                      <span>📅 {new Date(post.publishedAt).toLocaleDateString()}</span>
+                      <span>
+                        📅 {new Date(post.publishedAt).toLocaleDateString()}
+                      </span>
                     </div>
                     <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white line-clamp-2 group-hover:text-blue-600 transition-colors">
                       {post.title}
@@ -186,8 +204,18 @@ export default function Blog() {
                       className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold transition-all transform hover:scale-105"
                     >
                       Read Article
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </Link>
                   </div>
@@ -196,25 +224,39 @@ export default function Blog() {
             </div>
           ) : (
             <div className="text-center py-16">
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-2">No articles found</p>
-              <p className="text-gray-500 dark:text-gray-500">Try adjusting your search or filters.</p>
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-2">
+                No articles found
+              </p>
+              <p className="text-gray-500 dark:text-gray-500">
+                Try adjusting your search or filters.
+              </p>
             </div>
           )}
 
           <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-900 dark:to-gray-900 text-white rounded-xl overflow-hidden">
             <div className="max-w-4xl mx-auto px-4 text-center">
-              <h2 className="text-4xl font-bold mb-4">📬 Stay Updated with Industry Insights</h2>
-              <p className="text-xl opacity-90 mb-8">Subscribe to our newsletter for expert tips, latest innovations, and exclusive updates.</p>
+              <h2 className="text-4xl font-bold mb-4">
+                📬 Stay Updated with Industry Insights
+              </h2>
+              <p className="text-xl opacity-90 mb-8">
+                Subscribe to our newsletter for expert tips, latest innovations,
+                and exclusive updates.
+              </p>
               <form
                 onSubmit={(e) => {
                   e.preventDefault()
                   const formData = new FormData(e.currentTarget)
                   const email = formData.get("email") as string
                   if (email) {
-                    const subscribers = JSON.parse(localStorage.getItem("castle_blog_subscribers") || "[]")
+                    const subscribers = JSON.parse(
+                      localStorage.getItem("castle_blog_subscribers") || "[]"
+                    )
                     if (!subscribers.includes(email)) {
                       subscribers.push(email)
-                      localStorage.setItem("castle_blog_subscribers", JSON.stringify(subscribers))
+                      localStorage.setItem(
+                        "castle_blog_subscribers",
+                        JSON.stringify(subscribers)
+                      )
                     }
                     alert("✅ Subscribed successfully!")
                     ;(e.currentTarget as HTMLFormElement).reset()

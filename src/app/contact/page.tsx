@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { VoiceRecorder } from '@/components/VoiceRecorder'
+import { useState } from "react"
+import Link from "next/link"
+import { VoiceRecorder } from "@/components/VoiceRecorder"
 
-type ToastType = 'success' | 'error' | 'loading'
+type ToastType = "success" | "error" | "loading"
 
 interface Toast {
   id: string
@@ -18,15 +18,15 @@ export default function Contact() {
   const [recordingUrl, setRecordingUrl] = useState<string | null>(null)
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: 'maintenance',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    service: "maintenance",
+    message: "",
   })
 
   // Add toast notification (no page reload!)
-  const addToast = (message: string, type: ToastType = 'success') => {
+  const addToast = (message: string, type: ToastType = "success") => {
     const id = Date.now().toString()
     const toast: Toast = { id, message, type }
     setToasts((prev) => [...prev, toast])
@@ -40,7 +40,9 @@ export default function Contact() {
   }
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -51,10 +53,10 @@ export default function Contact() {
     setLoading(true)
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           ...formData,
@@ -65,24 +67,28 @@ export default function Contact() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit inquiry')
+        throw new Error(data.error || "Failed to submit inquiry")
       }
 
       // ✅ SUCCESS: Show toast notification (NO PAGE RELOAD!)
-      addToast('✅ Your inquiry has been submitted successfully! We will contact you within 24 hours.', 'success')
+      addToast(
+        "✅ Your inquiry has been submitted successfully! We will contact you within 24 hours.",
+        "success"
+      )
 
       // Reset form
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: 'maintenance',
-        message: '',
+        name: "",
+        email: "",
+        phone: "",
+        service: "maintenance",
+        message: "",
       })
       setRecordingUrl(null)
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'An error occurred'
-      addToast(`❌ ${errorMessage}`, 'error')
+      const errorMessage =
+        err instanceof Error ? err.message : "An error occurred"
+      addToast(`❌ ${errorMessage}`, "error")
     } finally {
       setLoading(false)
     }
@@ -96,11 +102,11 @@ export default function Contact() {
           <div
             key={toast.id}
             className={`px-4 py-3 rounded-lg shadow-lg text-white font-medium transition-all transform ${
-              toast.type === 'success'
-                ? 'bg-green-500 dark:bg-green-600'
-                : toast.type === 'error'
-                  ? 'bg-red-500 dark:bg-red-600'
-                  : 'bg-blue-500 dark:bg-blue-600'
+              toast.type === "success"
+                ? "bg-green-500 dark:bg-green-600"
+                : toast.type === "error"
+                  ? "bg-red-500 dark:bg-red-600"
+                  : "bg-blue-500 dark:bg-blue-600"
             } animate-pulse`}
           >
             {toast.message}
@@ -111,7 +117,9 @@ export default function Contact() {
       <section className="bg-gradient-to-r from-blue-600 to-indigo-800 dark:from-blue-800 dark:to-indigo-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-5xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-xl opacity-90">We&apos;re here to help with your elevator needs</p>
+          <p className="text-xl opacity-90">
+            We&apos;re here to help with your elevator needs
+          </p>
         </div>
       </section>
 
@@ -121,42 +129,59 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition">
               <div className="text-4xl mb-3">📞</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Call Us</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                Call Us
+              </h3>
               <a
                 href="tel:+918285266082"
                 className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
               >
                 +91 828-5266-082
               </a>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">Available 24/7</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                Available 24/7
+              </p>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition">
               <div className="text-4xl mb-3">✉️</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Email Us</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                Email Us
+              </h3>
               <a
                 href="mailto:support@castelelevator.com"
                 className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
               >
                 support@castelelevator.com
               </a>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">Quick response</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                Quick response
+              </p>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition">
               <div className="text-4xl mb-3">⚡</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Quick Response</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                Quick Response
+              </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                <strong className="text-gray-900 dark:text-white">24-hour</strong> response time
+                <strong className="text-gray-900 dark:text-white">
+                  24-hour
+                </strong>{" "}
+                response time
               </p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">For all inquiries</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                For all inquiries
+              </p>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
+                Send Us a Message
+              </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name and Email */}
@@ -259,11 +284,12 @@ export default function Contact() {
                   disabled={loading}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-bold py-4 px-6 rounded-lg transition duration-200 transform hover:scale-105 disabled:hover:scale-100"
                 >
-                  {loading ? 'Sending...' : 'Send Inquiry'}
+                  {loading ? "Sending..." : "Send Inquiry"}
                 </button>
 
                 <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-                  We respect your privacy. Your information will only be used to respond to your inquiry.
+                  We respect your privacy. Your information will only be used to
+                  respond to your inquiry.
                 </p>
               </form>
             </div>
@@ -274,8 +300,13 @@ export default function Contact() {
       {/* Blog CTA Section */}
       <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Learn More from Our Blog</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">Discover tips, industry insights, and best practices for elevator maintenance and safety</p>
+          <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+            Learn More from Our Blog
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+            Discover tips, industry insights, and best practices for elevator
+            maintenance and safety
+          </p>
           <Link
             href="/blog"
             className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"

@@ -3,7 +3,8 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Service Areas - CastleElevator",
-  description: "CastleElevator service areas across Delhi, UP, Punjab, Jammu, Haryana, Madhya Pradesh, and Bihar.",
+  description:
+    "CastleElevator service areas across Delhi, UP, Punjab, Jammu, Haryana, Madhya Pradesh, and Bihar.",
 }
 
 // 📝 SERVICE AREAS DATA with expanded information
@@ -12,9 +13,16 @@ const serviceAreas = [
     id: 1,
     name: "Delhi",
     emoji: "🏙️",
-    description: "Serving the National Capital Region with professional elevator solutions",
-    cities: ["New Delhi", "North Delhi", "East Delhi", "South Delhi", "West Delhi"],
-    coverage: "Comprehensive coverage across all districts"
+    description:
+      "Serving the National Capital Region with professional elevator solutions",
+    cities: [
+      "New Delhi",
+      "North Delhi",
+      "East Delhi",
+      "South Delhi",
+      "West Delhi",
+    ],
+    coverage: "Comprehensive coverage across all districts",
   },
   {
     id: 2,
@@ -22,7 +30,7 @@ const serviceAreas = [
     emoji: "📍",
     description: "Extended services across major cities in Uttar Pradesh",
     cities: ["Lucknow", "Kanpur", "Agra", "Varanasi", "Noida", "Ghaziabad"],
-    coverage: "Major cities and commercial hubs"
+    coverage: "Major cities and commercial hubs",
   },
   {
     id: 3,
@@ -30,7 +38,7 @@ const serviceAreas = [
     emoji: "🏢",
     description: "Trusted elevator partner in Punjab's growing cities",
     cities: ["Chandigarh", "Ludhiana", "Amritsar", "Jalandhar", "Patiala"],
-    coverage: "All major metropolitan areas"
+    coverage: "All major metropolitan areas",
   },
   {
     id: 4,
@@ -38,7 +46,7 @@ const serviceAreas = [
     emoji: "⛰️",
     description: "Specialized services in the challenging terrain of J&K",
     cities: ["Jammu", "Srinagar", "Leh", "Ladakh"],
-    coverage: "Northern region expertise"
+    coverage: "Northern region expertise",
   },
   {
     id: 5,
@@ -46,7 +54,7 @@ const serviceAreas = [
     emoji: "🚀",
     description: "Rapid expansion of services across Haryana",
     cities: ["Gurgaon", "Faridabad", "Hisar", "Rohtak", "Panipat"],
-    coverage: "Industrial and residential sectors"
+    coverage: "Industrial and residential sectors",
   },
   {
     id: 6,
@@ -54,7 +62,7 @@ const serviceAreas = [
     emoji: "🌳",
     description: "Growing presence in Madhya Pradesh's developing cities",
     cities: ["Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain"],
-    coverage: "Central India expansion"
+    coverage: "Central India expansion",
   },
   {
     id: 7,
@@ -62,7 +70,7 @@ const serviceAreas = [
     emoji: "📍",
     description: "Expanding elevator services across Bihar's major centers",
     cities: ["Patna", "Gaya", "Bhagalpur", "Darbhanga", "Muzaffarpur"],
-    coverage: "Eastern region infrastructure development"
+    coverage: "Eastern region infrastructure development",
   },
 ]
 
@@ -74,7 +82,8 @@ export default function ServiceAreas() {
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">Service Areas</h1>
           <p className="text-xl opacity-90">
-            Professional elevator solutions across North India - Delhi, UP, Punjab, Jammu, Haryana & Madhya Pradesh
+            Professional elevator solutions across North India - Delhi, UP,
+            Punjab, Jammu, Haryana & Madhya Pradesh
           </p>
         </div>
       </section>
@@ -84,9 +93,13 @@ export default function ServiceAreas() {
         <div className="max-w-7xl mx-auto px-4">
           {/* 📝 SECTION DESCRIPTION */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Our Coverage Map</h2>
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+              Our Coverage Map
+            </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              With over 500+ completed projects and a network of service centers, we provide reliable elevator solutions across our service areas.
+              With over 500+ completed projects and a network of service
+              centers, we provide reliable elevator solutions across our service
+              areas.
             </p>
           </div>
 
@@ -109,10 +122,15 @@ export default function ServiceAreas() {
 
                 {/* Cities */}
                 <div className="mb-4">
-                  <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Key Cities:</h4>
+                  <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                    Key Cities:
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {area.cities.map((city, idx) => (
-                      <span key={idx} className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+                      <span
+                        key={idx}
+                        className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full"
+                      >
                         {city}
                       </span>
                     ))}
@@ -136,23 +154,41 @@ export default function ServiceAreas() {
             <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-center">
               Expanding Our Services
             </h2>
-            
+
             {/* Availability Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">7</div>
-                <p className="text-gray-600 dark:text-gray-400">States Covered</p>
-                <p className="text-sm text-gray-500 dark:text-gray-500">Delhi, UP, Punjab, Jammu, Haryana, MP, Bihar</p>
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                  7
+                </div>
+                <p className="text-gray-600 dark:text-gray-400">
+                  States Covered
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-500">
+                  Delhi, UP, Punjab, Jammu, Haryana, MP, Bihar
+                </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">35+</div>
-                <p className="text-gray-600 dark:text-gray-400">Service Centers</p>
-                <p className="text-sm text-gray-500 dark:text-gray-500">24/7 support</p>
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                  35+
+                </div>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Service Centers
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-500">
+                  24/7 support
+                </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">600+</div>
-                <p className="text-gray-600 dark:text-gray-400">Buildings Served</p>
-                <p className="text-sm text-gray-500 dark:text-gray-500">Trusted partner</p>
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                  600+
+                </div>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Buildings Served
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-500">
+                  Trusted partner
+                </p>
               </div>
             </div>
 
@@ -162,7 +198,8 @@ export default function ServiceAreas() {
                 Don&apos;t see your area? Contact us!
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                We&apos;re constantly expanding. Get in touch to learn about availability in your location.
+                We&apos;re constantly expanding. Get in touch to learn about
+                availability in your location.
               </p>
               <Link
                 href="/contact"

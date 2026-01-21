@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { useRef, useState } from 'react'
+import { useRef, useState } from "react"
 
 interface VoiceRecorderProps {
   onRecordingComplete: (url: string) => void
@@ -20,10 +20,12 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
   const startRecording = async () => {
     setIsLoading(true)
     setPermissionDenied(false)
-    
+
     try {
       if (!navigator.mediaDevices?.getUserMedia) {
-        alert('Your browser does not support audio recording. Please use Chrome, Firefox, Safari, or Edge.')
+        alert(
+          "Your browser does not support audio recording. Please use Chrome, Firefox, Safari, or Edge."
+        )
         setIsLoading(false)
         return
       }
@@ -33,11 +35,13 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
         stream = await navigator.mediaDevices.getUserMedia({ audio: true })
       } catch (error: unknown) {
         const err = error as { name: string; message?: string }
-        if (err.name === 'NotAllowedError') {
+        if (err.name === "NotAllowedError") {
           setPermissionDenied(true)
-          alert('Microphone permission denied. Please allow microphone access to record voice messages.')
-        } else if (err.name === 'NotFoundError') {
-          alert('No microphone found. Please check your audio input device.')
+          alert(
+            "Microphone permission denied. Please allow microphone access to record voice messages."
+          )
+        } else if (err.name === "NotFoundError") {
+          alert("No microphone found. Please check your audio input device.")
         } else {
           alert(`Error accessing microphone: ${err.message}`)
         }
@@ -46,14 +50,14 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
       }
       streamRef.current = stream
 
-      let mimeType = ''
+      let mimeType = ""
       const mimeTypes = [
-        'audio/webm;codecs=opus',
-        'audio/webm',
-        'audio/mp4',
-        'audio/mpeg',
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/mp4",
+        "audio/mpeg",
       ]
-      
+
       for (const type of mimeTypes) {
         if (MediaRecorder.isTypeSupported(type)) {
           mimeType = type
@@ -96,7 +100,7 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
         }
         setIsRecording(false)
 
-        const blob = new Blob(chunksRef.current, { type: 'audio/webm' })
+        const blob = new Blob(chunksRef.current, { type: "audio/webm" })
         const reader = new FileReader()
 
         reader.onloadend = () => {
@@ -115,14 +119,22 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
     } catch (err: unknown) {
       setIsLoading(false)
       const error = err as { name: string; message?: string }
-      console.error('Error accessing microphone:', error)
-      
-      if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+      console.error("Error accessing microphone:", error)
+
+      if (
+        error.name === "NotAllowedError" ||
+        error.name === "PermissionDeniedError"
+      ) {
         setPermissionDenied(true)
-      } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
-        alert('No microphone device found. Please check your audio setup.')
+      } else if (
+        error.name === "NotFoundError" ||
+        error.name === "DevicesNotFoundError"
+      ) {
+        alert("No microphone device found. Please check your audio setup.")
       } else {
-        alert(`Error accessing microphone: ${err.message || err.name || 'Unknown error'}`)
+        alert(
+          `Error accessing microphone: ${error.message || error.name || "Unknown error"}`
+        )
       }
     }
   }
@@ -141,17 +153,20 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
   }
 
   if (permissionDenied) {
     return (
       <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
         <p className="text-yellow-700 dark:text-yellow-400 text-sm">
-          🎤 <strong>Microphone access needed:</strong> Please check your browser settings and allow microphone access to CastleElevator. Then refresh the page and try again.
+          🎤 <strong>Microphone access needed:</strong> Please check your
+          browser settings and allow microphone access to CastleElevator. Then
+          refresh the page and try again.
         </p>
         <p className="text-yellow-700 dark:text-yellow-400 text-xs mt-2">
-          If you still have issues, you can submit the form without a voice message.
+          If you still have issues, you can submit the form without a voice
+          message.
         </p>
       </div>
     )
@@ -171,8 +186,8 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
               disabled={isLoading}
               className="w-full bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2 disabled:cursor-not-allowed"
             >
-              <span className="text-xl">{isLoading ? '⏳' : '🎙️'}</span>
-              {isLoading ? 'Requesting microphone...' : 'Start Recording'}
+              <span className="text-xl">{isLoading ? "⏳" : "🎙️"}</span>
+              {isLoading ? "Requesting microphone..." : "Start Recording"}
             </button>
           ) : (
             <div className="space-y-3">

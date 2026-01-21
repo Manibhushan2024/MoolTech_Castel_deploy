@@ -96,10 +96,26 @@
     "overview": "Our Annual Maintenance Contract (AMC) is a comprehensive service plan designed to keep your elevators running smoothly 365 days a year. With monthly scheduled visits by certified technicians, preventive maintenance, and 24/7 emergency support, AMC ensures maximum uptime, safety compliance, and peace of mind. The contract includes spare parts coverage, detailed reporting, and priority response times - all at a predictable annual cost that helps you budget effectively while protecting your elevator investment.",
     "imagePath": "/images/services/amc.png",
     "highlights": [
-      { "icon": "📅", "title": "12 Monthly Visits", "desc": "Scheduled preventive maintenance every month" },
-      { "icon": "🔧", "title": "Parts Included", "desc": "Spare parts covered up to contract limit" },
-      { "icon": "📞", "title": "24/7 Support", "desc": "Emergency hotline available anytime" },
-      { "icon": "📊", "title": "Detailed Reports", "desc": "Quarterly performance & health reports" }
+      {
+        "icon": "📅",
+        "title": "12 Monthly Visits",
+        "desc": "Scheduled preventive maintenance every month"
+      },
+      {
+        "icon": "🔧",
+        "title": "Parts Included",
+        "desc": "Spare parts covered up to contract limit"
+      },
+      {
+        "icon": "📞",
+        "title": "24/7 Support",
+        "desc": "Emergency hotline available anytime"
+      },
+      {
+        "icon": "📊",
+        "title": "Detailed Reports",
+        "desc": "Quarterly performance & health reports"
+      }
     ],
     "inclusions": [
       "12 scheduled maintenance visits (monthly)",
@@ -145,10 +161,26 @@
     "overview": "Our Corrective Maintenance Contract (CMC) provides rapid-response repair services when your elevator needs urgent attention. Unlike preventive contracts, CMC focuses on fixing problems as they occur with guaranteed response times of under 2 hours. Our expert technicians are available 24/7 to diagnose issues, perform repairs, and get your elevator back in service quickly. CMC is ideal for buildings that prefer pay-as-you-go maintenance with the security of priority response and competitive repair rates.",
     "imagePath": "/images/services/cmc.png",
     "highlights": [
-      { "icon": "⚡", "title": "2-Hour Response", "desc": "Rapid technician dispatch guaranteed" },
-      { "icon": "🚨", "title": "24/7 Emergency", "desc": "Round-the-clock support available" },
-      { "icon": "🔍", "title": "Expert Diagnosis", "desc": "Complete troubleshooting & analysis" },
-      { "icon": "✅", "title": "Quality Repairs", "desc": "Certified parts & skilled technicians" }
+      {
+        "icon": "⚡",
+        "title": "2-Hour Response",
+        "desc": "Rapid technician dispatch guaranteed"
+      },
+      {
+        "icon": "🚨",
+        "title": "24/7 Emergency",
+        "desc": "Round-the-clock support available"
+      },
+      {
+        "icon": "🔍",
+        "title": "Expert Diagnosis",
+        "desc": "Complete troubleshooting & analysis"
+      },
+      {
+        "icon": "✅",
+        "title": "Quality Repairs",
+        "desc": "Certified parts & skilled technicians"
+      }
     ],
     "inclusions": [
       "Emergency breakdown repairs",

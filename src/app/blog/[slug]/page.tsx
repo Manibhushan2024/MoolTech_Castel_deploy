@@ -15,10 +15,9 @@ export default function BlogPost() {
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-   
   useEffect(() => {
     // Load blog post from static JSON data
-     
+
     if (slug) {
       const blogs = blogPostsData as BlogPost[]
       const blogPost = blogs.find((p) => p.slug === slug)
@@ -28,10 +27,10 @@ export default function BlogPost() {
         const related = blogs
           .filter((p) => blogPost.relatedSlugs.includes(p.slug))
           .slice(0, 3)
-        // eslint-disable-next-line react-hooks/set-state-in-effect
+
         setRelatedPosts(related)
       }
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+
       setIsLoading(false)
     }
   }, [slug])
@@ -40,8 +39,18 @@ export default function BlogPost() {
     return (
       <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900">
         <div className="animate-spin">
-          <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          <svg
+            className="w-12 h-12 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            />
           </svg>
         </div>
       </div>
@@ -52,7 +61,9 @@ export default function BlogPost() {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Article Not Found</h1>
+          <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+            Article Not Found
+          </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
             Sorry, the article you&apos;re looking for doesn&apos;t exist.
           </p>
@@ -76,7 +87,9 @@ export default function BlogPost() {
             <span>/</span>
             <Link href="/blog">Blog</Link>
             <span>/</span>
-            <span className="text-gray-900 dark:text-white font-semibold truncate">{post.title}</span>
+            <span className="text-gray-900 dark:text-white font-semibold truncate">
+              {post.title}
+            </span>
           </nav>
         </div>
       </div>
@@ -87,7 +100,14 @@ export default function BlogPost() {
             {post.category}
           </span>
           <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-            <span>📅 {new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+            <span>
+              📅{" "}
+              {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
             <span>⏱️ {post.readTimeMinutes} min read</span>
           </div>
         </div>
@@ -105,8 +125,12 @@ export default function BlogPost() {
             className="rounded-full object-cover"
           />
           <div>
-            <p className="font-bold text-gray-900 dark:text-white">{post.author.name}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{post.author.title}</p>
+            <p className="font-bold text-gray-900 dark:text-white">
+              {post.author.name}
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              {post.author.title}
+            </p>
           </div>
         </div>
 
@@ -125,7 +149,10 @@ export default function BlogPost() {
           </h2>
           <ul className="space-y-3">
             {post.keyPoints.map((point, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-gray-800 dark:text-gray-200">
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-gray-800 dark:text-gray-200"
+              >
                 <span>✓</span>
                 <span>{point}</span>
               </li>
@@ -149,7 +176,9 @@ export default function BlogPost() {
                   <ul className="space-y-2 mt-4 ml-4">
                     {section.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-3">
-                        <span className="text-blue-600 dark:text-blue-400">→</span>
+                        <span className="text-blue-600 dark:text-blue-400">
+                          →
+                        </span>
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -165,7 +194,10 @@ export default function BlogPost() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
               📹 {post.youtube.title}
             </h2>
-            <div className="relative w-full bg-black rounded-xl overflow-hidden shadow-2xl" style={{ paddingBottom: "56.25%" }}>
+            <div
+              className="relative w-full bg-black rounded-xl overflow-hidden shadow-2xl"
+              style={{ paddingBottom: "56.25%" }}
+            >
               <iframe
                 src={post.youtube.embedUrl}
                 title={post.youtube.title}
@@ -183,7 +215,8 @@ export default function BlogPost() {
               <span>✅</span> Benefits
             </h4>
             <p className="text-gray-800 dark:text-gray-300">
-              Implementing these practices provides immediate benefits with enhanced safety, improved efficiency, and cost savings.
+              Implementing these practices provides immediate benefits with
+              enhanced safety, improved efficiency, and cost savings.
             </p>
           </div>
 
@@ -192,13 +225,16 @@ export default function BlogPost() {
               <span>💡</span> Expert Tips
             </h4>
             <p className="text-gray-800 dark:text-gray-300">
-              Consult with professionals and invest in quality solutions to maximize performance.
+              Consult with professionals and invest in quality solutions to
+              maximize performance.
             </p>
           </div>
         </div>
 
         <div className="p-8 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-800 dark:to-blue-900 text-white rounded-xl mb-12">
-          <h3 className="text-2xl font-bold mb-4">Need Professional Assistance?</h3>
+          <h3 className="text-2xl font-bold mb-4">
+            Need Professional Assistance?
+          </h3>
           <p className="mb-6 text-lg opacity-90">
             Contact our expert team for elevator solutions.
           </p>
@@ -222,7 +258,9 @@ export default function BlogPost() {
       {relatedPosts.length > 0 && (
         <section className="py-16 bg-gray-50 dark:bg-gray-900 border-t">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10">📚 Related Articles</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-10">
+              📚 Related Articles
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((rpost) => (
                 <Link key={rpost.slug} href={`/blog/${rpost.slug}`}>
@@ -257,7 +295,9 @@ export default function BlogPost() {
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-900 dark:to-orange-800 text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Explore More Insights</h2>
-          <p className="text-xl opacity-90 mb-8">Discover more articles on elevator safety and technology.</p>
+          <p className="text-xl opacity-90 mb-8">
+            Discover more articles on elevator safety and technology.
+          </p>
           <Link
             href="/blog"
             className="inline-block px-8 py-3 bg-white text-orange-600 hover:bg-gray-100 rounded-lg font-bold"

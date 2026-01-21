@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 }
 
 const serviceColors = {
-  "installation": { gradient: "from-orange-400 to-orange-600", icon: "🔧" },
-  "maintenance": { gradient: "from-green-400 to-green-600", icon: "🛠️" },
-  "modernization": { gradient: "from-purple-400 to-purple-600", icon: "⚡" },
-  "amc": { gradient: "from-blue-400 to-blue-600", icon: "📋" },
-  "cmc": { gradient: "from-red-400 to-red-600", icon: "🚨" },
+  installation: { gradient: "from-orange-400 to-orange-600", icon: "🔧" },
+  maintenance: { gradient: "from-green-400 to-green-600", icon: "🛠️" },
+  modernization: { gradient: "from-purple-400 to-purple-600", icon: "⚡" },
+  amc: { gradient: "from-blue-400 to-blue-600", icon: "📋" },
+  cmc: { gradient: "from-red-400 to-red-600", icon: "🚨" },
 }
 
 export default function Services() {
@@ -34,14 +34,18 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => {
-              const colors = serviceColors[service.slug as keyof typeof serviceColors] || { gradient: "from-blue-400 to-blue-600", icon: "💼" }
+              const colors = serviceColors[
+                service.slug as keyof typeof serviceColors
+              ] || { gradient: "from-blue-400 to-blue-600", icon: "💼" }
               return (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
                   className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer hover:-translate-y-2"
                 >
-                  <div className={`h-40 bg-linear-to-br ${colors.gradient} dark:opacity-80 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`h-40 bg-linear-to-br ${colors.gradient} dark:opacity-80 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300`}
+                  >
                     {colors.icon}
                   </div>
                   <div className="p-6">
@@ -55,8 +59,18 @@ export default function Services() {
                       <span className="text-blue-600 dark:text-blue-400 font-semibold text-sm group-hover:translate-x-2 transition-transform">
                         Explore
                       </span>
-                      <svg className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-4 h-4 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </div>
                   </div>

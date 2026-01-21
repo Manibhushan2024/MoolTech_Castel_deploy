@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod"
 
 export const EnquirySchema = z.object({
   name: z
@@ -33,10 +33,7 @@ export const EnquirySchema = z.object({
     ])
     .optional(),
 
-  city: z
-    .string()
-    .min(2, "City name required")
-    .max(50, "City name too long"),
+  city: z.string().min(2, "City name required").max(50, "City name too long"),
 
   state: z
     .string()
@@ -51,13 +48,13 @@ export const EnquirySchema = z.object({
   isEmergency: z.boolean().default(false),
 
   honeypot: z.string().optional(), // Should be empty
-});
+})
 
-export type EnquiryFormData = z.infer<typeof EnquirySchema>;
+export type EnquiryFormData = z.infer<typeof EnquirySchema>
 
 // Voice file validation
 export const VoiceFileSchema = z.object({
   name: z.string().regex(/\.wav$|\.mp3$|\.m4a$/, "Invalid audio format"),
   size: z.number().max(5 * 1024 * 1024, "File must be less than 5MB"),
   type: z.string().regex(/audio\//, "File must be an audio file"),
-});
+})

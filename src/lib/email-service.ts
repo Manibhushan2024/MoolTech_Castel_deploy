@@ -1,4 +1,4 @@
-import { Resend } from 'resend'
+import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -54,13 +54,17 @@ export async function sendAdminNotification(data: ContactFormData) {
             <p style="margin: 0; color: #333; line-height: 1.6;">${message}</p>
           </div>
 
-          ${recordingPresent ? `
+          ${
+            recordingPresent
+              ? `
             <div style="background: #dbeafe; border-left: 4px solid #0284c7; padding: 20px; border-radius: 8px; margin: 20px 0;">
               <h3 style="margin-top: 0; color: #0284c7;">🎤 Voice Recording Attached</h3>
               <p style="margin: 0; color: #333;"><strong>✓ Customer has included a voice message with this inquiry</strong></p>
               <p style="margin: 10px 0 0 0; color: #0284c7; font-size: 12px;"><em>Note: Voice recording is stored in our system and available for playback in the admin dashboard</em></p>
             </div>
-          ` : ''}
+          `
+              : ""
+          }
 
           <div style="text-align: center; margin: 20px 0;">
             <a href="mailto:${email}?subject=Re: Your CastleElevator Inquiry" style="display: inline-block; background: #1e40af; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-right: 10px;">📧 Reply Email</a>
@@ -77,16 +81,16 @@ export async function sendAdminNotification(data: ContactFormData) {
     `
 
     const response = await resend.emails.send({
-      from: 'CastleElevator <onboarding@resend.dev>',
+      from: "CastleElevator <onboarding@resend.dev>",
       to: process.env.ADMIN_EMAIL!,
-      subject: `🔔 New Inquiry from ${name} - ${service}${recordingPresent ? ' 🎤' : ''}`,
+      subject: `🔔 New Inquiry from ${name} - ${service}${recordingPresent ? " 🎤" : ""}`,
       html: emailContent,
     })
 
-    console.log('Admin email sent successfully:', response)
+    console.log("Admin email sent successfully:", response)
     return { success: true, data: response }
   } catch (error) {
-    console.error('Admin email error:', error)
+    console.error("Admin email error:", error)
     return { success: false, error }
   }
 }
@@ -179,16 +183,16 @@ export async function sendCustomerConfirmation(data: ContactFormData) {
     `
 
     const response = await resend.emails.send({
-      from: 'CastleElevator <onboarding@resend.dev>',
+      from: "CastleElevator <onboarding@resend.dev>",
       to: email,
-      subject: 'Thank You for Your Inquiry - CastleElevator ✅',
+      subject: "Thank You for Your Inquiry - CastleElevator ✅",
       html: emailContent,
     })
 
-    console.log('Customer email sent successfully:', response)
+    console.log("Customer email sent successfully:", response)
     return { success: true, data: response }
   } catch (error) {
-    console.error('Customer email error:', error)
+    console.error("Customer email error:", error)
     return { success: false, error }
   }
 }

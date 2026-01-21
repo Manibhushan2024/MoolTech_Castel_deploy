@@ -9,9 +9,12 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://castleelevator.com"),
-  title: "CastleElevator - Premium Elevator Solutions | Installation & Maintenance",
-  description: "Professional elevator installation, maintenance, and modernization services. 24/7 emergency support. Serving Bangalore, Delhi, Mumbai, Pune, Hyderabad, and Chennai.",
-  keywords: "elevators, elevator installation, maintenance, modernization, commercial elevators, residential elevators, freight elevators",
+  title:
+    "CastleElevator - Premium Elevator Solutions | Installation & Maintenance",
+  description:
+    "Professional elevator installation, maintenance, and modernization services. 24/7 emergency support. Serving Bangalore, Delhi, Mumbai, Pune, Hyderabad, and Chennai.",
+  keywords:
+    "elevators, elevator installation, maintenance, modernization, commercial elevators, residential elevators, freight elevators",
   authors: [{ name: "CastleElevator Team" }],
   creator: "CastleElevator",
   publisher: "CastleElevator",
@@ -37,12 +40,14 @@ export const metadata: Metadata = {
     url: "https://castleelevator.com",
     siteName: "CastleElevator",
     title: "CastleElevator - Premium Elevator Solutions",
-    description: "Professional elevator installation, maintenance, and modernization services. 24/7 emergency support.",
+    description:
+      "Professional elevator installation, maintenance, and modernization services. 24/7 emergency support.",
   },
   twitter: {
     card: "summary_large_image",
     title: "CastleElevator - Premium Elevator Solutions",
-    description: "Professional elevator installation, maintenance, and modernization services.",
+    description:
+      "Professional elevator installation, maintenance, and modernization services.",
     creator: "@CastleElevator",
   },
   alternates: {

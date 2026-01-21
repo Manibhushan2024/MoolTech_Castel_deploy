@@ -29,16 +29,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Initialize theme on mount
   useEffect(() => {
-     
     // Get stored theme or system preference
     const stored = localStorage.getItem("theme") as Theme | null
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches
     const initialTheme = stored || (prefersDark ? "dark" : "light")
-    
+
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initialTheme)
     applyTheme(initialTheme)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+
     setMounted(true)
   }, [])
 

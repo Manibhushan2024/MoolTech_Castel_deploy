@@ -4,13 +4,13 @@
  * Stores in-memory or database for audit trail
  */
 
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server"
 
 // In-memory store (for MVP - replace with database for production)
 const operationLogs: Array<{
   id: string
-  type: 'save' | 'ignore' | 'send' | 'draft'
-  status: 'pending' | 'completed' | 'failed'
+  type: "save" | "ignore" | "send" | "draft"
+  status: "pending" | "completed" | "failed"
   timestamp: string
   data: Record<string, unknown>
   message?: string
@@ -27,28 +27,32 @@ export async function POST(request: NextRequest) {
     // Validate required fields
     if (!operationType || !data) {
       return NextResponse.json(
-        { error: 'operationType and data are required' },
+        { error: "operationType and data are required" },
         { status: 400 }
       )
     }
 
     // Valid operation types
-    const validTypes = ['save', 'ignore', 'send', 'draft']
+    const validTypes = ["save", "ignore", "send", "draft"]
     if (!validTypes.includes(operationType)) {
       return NextResponse.json(
-        { error: `Invalid operationType. Must be one of: ${validTypes.join(', ')}` },
+        {
+          error: `Invalid operationType. Must be one of: ${validTypes.join(", ")}`,
+        },
         { status: 400 }
       )
     }
 
-    const id = operationId || `op_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    const id =
+      operationId ||
+      `op_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
     const timestamp = new Date().toISOString()
 
     // Log the operation
     const operation = {
       id,
-      type: operationType as 'save' | 'ignore' | 'send' | 'draft',
-      status: 'completed' as const,
+      type: operationType as "save" | "ignore" | "send" | "draft",
+      status: "completed" as const,
       timestamp,
       data,
     }
@@ -72,9 +76,9 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error('Operation logging error:', error)
+    console.error("Operation logging error:", error)
     return NextResponse.json(
-      { error: 'Failed to log operation' },
+      { error: "Failed to log operation" },
       { status: 500 }
     )
   }
@@ -84,8 +88,8 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
-    const limit = parseInt(searchParams.get('limit') || '100')
-    const type = searchParams.get('type')
+    const limit = parseInt(searchParams.get("limit") || "100")
+    const type = searchParams.get("type")
 
     let logs = operationLogs
 
@@ -107,9 +111,9 @@ export async function GET(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error('Operation retrieval error:', error)
+    console.error("Operation retrieval error:", error)
     return NextResponse.json(
-      { error: 'Failed to retrieve operations' },
+      { error: "Failed to retrieve operations" },
       { status: 500 }
     )
   }

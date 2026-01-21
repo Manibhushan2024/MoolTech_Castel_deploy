@@ -15,7 +15,9 @@ export function ThemeToggle() {
       {/* Sun icon - shown in dark mode (to switch to light) */}
       <svg
         className={`w-5 h-5 text-yellow-500 transition-all duration-300 ${
-          theme === "dark" ? "opacity-100 rotate-0" : "opacity-0 rotate-90 absolute"
+          theme === "dark"
+            ? "opacity-100 rotate-0"
+            : "opacity-0 rotate-90 absolute"
         }`}
         fill="currentColor"
         viewBox="0 0 20 20"
@@ -30,7 +32,9 @@ export function ThemeToggle() {
       {/* Moon icon - shown in light mode (to switch to dark) */}
       <svg
         className={`w-5 h-5 text-gray-700 dark:text-gray-300 transition-all duration-300 ${
-          theme === "light" ? "opacity-100 rotate-0" : "opacity-0 -rotate-90 absolute"
+          theme === "light"
+            ? "opacity-100 rotate-0"
+            : "opacity-0 -rotate-90 absolute"
         }`}
         fill="currentColor"
         viewBox="0 0 20 20"

@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
-import { sendAdminNotification, sendCustomerConfirmation } from "@/lib/email-service"
+import {
+  sendAdminNotification,
+  sendCustomerConfirmation,
+} from "@/lib/email-service"
 import { checkRateLimit, getRateLimitInfo } from "@/lib/rate-limit"
 import { EnquirySchema, VoiceFileSchema } from "@/lib/validation"
 import { z } from "zod"
@@ -19,81 +22,79 @@ function getClientIp(request: NextRequest): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const clientIp = getClientIp(request);
+    const clientIp = getClientIp(request)
 
     // Rate limiting check
     if (!checkRateLimit(clientIp)) {
-      const rateLimitInfo = getRateLimitInfo(clientIp);
+      const rateLimitInfo = getRateLimitInfo(clientIp)
       return NextResponse.json(
         {
           success: false,
           error: "Too many requests. Please try again later.",
-          retryAfter: Math.ceil(
-            (rateLimitInfo.resetTime - Date.now()) / 1000
-          ),
+          retryAfter: Math.ceil((rateLimitInfo.resetTime - Date.now()) / 1000),
         },
         { status: 429 }
-      );
+      )
     }
 
-    const contentType = request.headers.get("content-type") || "";
+    const contentType = request.headers.get("content-type") || ""
 
-    let formData: Record<string, unknown> = {};
+    let formData: Record<string, unknown> = {}
     // voiceFile is captured but currently not used - keeping for future implementation
-    let voiceFile: Buffer | null = null;
-    let voiceFileName: string | null = null;
+    let voiceFile: Buffer | null = null
+    let voiceFileName: string | null = null
 
     // Parse request body
     if (contentType.includes("application/json")) {
-      formData = await request.json();
+      formData = await request.json()
     } else if (contentType.includes("multipart/form-data")) {
-      const data = await request.formData();
+      const data = await request.formData()
       for (const [key, value] of data.entries()) {
         if (value instanceof File) {
-          voiceFile = Buffer.from(await value.arrayBuffer());
-          voiceFileName = value.name;
+          voiceFile = Buffer.from(await value.arrayBuffer())
+          voiceFileName = value.name
           // Validate voice file
           try {
             VoiceFileSchema.parse({
               name: value.name,
               size: value.size,
               type: value.type,
-            });
+            })
           } catch {
             return NextResponse.json(
               { success: false, error: "Invalid voice file" },
               { status: 400 }
-            );
+            )
           }
         } else {
-          formData[key] = value;
+          formData[key] = value
         }
       }
     } else {
       return NextResponse.json(
         { success: false, error: "Invalid content type" },
         { status: 400 }
-      );
+      )
     }
 
     // Honeypot check (spam protection)
-    if (formData.honeypot && formData.honeypot.trim() !== "") {
-      console.warn("Honeypot triggered from IP:", clientIp);
+    if (formData.honeypot && String(formData.honeypot).trim() !== "") {
+      console.warn("Honeypot triggered from IP:", clientIp)
       return NextResponse.json(
         { success: true, enquiryId: generateEnquiryId() }, // Fake success
         { status: 200 }
-      );
+      )
     }
 
     // Parse boolean isEmergency
     formData.isEmergency =
-      formData.isEmergency === "true" || formData.isEmergency === true;
+      formData.isEmergency === "true" || formData.isEmergency === true
 
     // Validate form data
-    const validatedData = EnquirySchema.parse(formData);
+    const validatedData = EnquirySchema.parse(formData)
 
     // Generate unique ID
-    const enquiryId = generateEnquiryId();
+    const enquiryId = generateEnquiryId()
 
     // TODO: Save to database (Phase 4.2)
     // const enquiry = await db.enquiries.create({
@@ -112,7 +113,9 @@ export async function POST(request: NextRequest) {
       service: validatedData.serviceType || "general",
       message: validatedData.message,
       recordingPresent: !!voiceFileName,
-      recordingSizeInKB: voiceFileName ? Math.round(voiceFileName.length / 1024) : undefined,
+      recordingSizeInKB: voiceFileName
+        ? Math.round(voiceFileName.length / 1024)
+        : undefined,
     })
 
     // Send confirmation email to customer
@@ -128,11 +131,10 @@ export async function POST(request: NextRequest) {
       {
         success: true,
         enquiryId,
-        message:
-          "Your enquiry has been received. We will contact you shortly.",
+        message: "Your enquiry has been received. We will contact you shortly.",
       },
       { status: 201 }
-    );
+    )
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
@@ -145,18 +147,17 @@ export async function POST(request: NextRequest) {
           })),
         },
         { status: 400 }
-      );
+      )
     }
 
-    console.error("Enquiry API error:", error);
+    console.error("Enquiry API error:", error)
     return NextResponse.json(
       {
         success: false,
-        error:
-          error instanceof Error ? error.message : "Internal server error",
+        error: error instanceof Error ? error.message : "Internal server error",
       },
       { status: 500 }
-    );
+    )
   }
 }
 
@@ -169,5 +170,5 @@ export async function GET() {
       timestamp: new Date().toISOString(),
     },
     { status: 200 }
-  );
+  )
 }
