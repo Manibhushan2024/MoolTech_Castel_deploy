@@ -148,7 +148,9 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="mailto:support@castelelevator.com"
+                    href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=support@castelelevator.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 hover:text-orange-400 transition-colors"
                   >
                     <span>✉️</span>

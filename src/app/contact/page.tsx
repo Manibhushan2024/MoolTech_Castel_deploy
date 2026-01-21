@@ -149,7 +149,9 @@ export default function Contact() {
                 Email Us
               </h3>
               <a
-                href="mailto:support@castelelevator.com"
+                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=support@castelelevator.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
               >
                 support@castelelevator.com
@@ -282,7 +284,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-bold py-4 px-6 rounded-lg transition duration-200 transform hover:scale-105 disabled:hover:scale-100"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-bold py-4 px-6 rounded-lg transition duration-200 transform hover:scale-105 disabled:hover:scale-100 active:scale-95 touch-manipulation"
                 >
                   {loading ? "Sending..." : "Send Inquiry"}
                 </button>
