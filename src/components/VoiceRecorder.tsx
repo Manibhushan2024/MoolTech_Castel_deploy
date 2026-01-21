@@ -31,14 +31,15 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
       let stream: MediaStream
       try {
         stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      } catch (error: any) {
-        if (error.name === 'NotAllowedError') {
+      } catch (error: unknown) {
+        const err = error as { name: string; message?: string }
+        if (err.name === 'NotAllowedError') {
           setPermissionDenied(true)
           alert('Microphone permission denied. Please allow microphone access to record voice messages.')
-        } else if (error.name === 'NotFoundError') {
+        } else if (err.name === 'NotFoundError') {
           alert('No microphone found. Please check your audio input device.')
         } else {
-          alert(`Error accessing microphone: ${error.message}`)
+          alert(`Error accessing microphone: ${err.message}`)
         }
         setIsLoading(false)
         return
@@ -60,7 +61,7 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
         }
       }
 
-      const mediaRecorderOptions: any = {}
+      const mediaRecorderOptions: MediaRecorderOptions = {}
       if (mimeType) {
         mediaRecorderOptions.mimeType = mimeType
       }
@@ -111,13 +112,14 @@ export function VoiceRecorder({ onRecordingComplete }: VoiceRecorderProps) {
 
       mediaRecorderRef.current = mediaRecorder
       mediaRecorder.start()
-    } catch (err: any) {
+    } catch (err: unknown) {
       setIsLoading(false)
-      console.error('Error accessing microphone:', err)
+      const error = err as { name: string; message?: string }
+      console.error('Error accessing microphone:', error)
       
-      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
         setPermissionDenied(true)
-      } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+      } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
         alert('No microphone device found. Please check your audio setup.')
       } else {
         alert(`Error accessing microphone: ${err.message || err.name || 'Unknown error'}`)

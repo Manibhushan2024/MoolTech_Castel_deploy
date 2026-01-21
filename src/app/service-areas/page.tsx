@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Service Areas - CastleElevator",
@@ -158,17 +159,17 @@ export default function ServiceAreas() {
             {/* Contact CTA */}
             <div className="text-center border-t pt-8">
               <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-                Don't see your area? Contact us!
+                Don&apos;t see your area? Contact us!
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                We're constantly expanding. Get in touch to learn about availability in your location.
+                We&apos;re constantly expanding. Get in touch to learn about availability in your location.
               </p>
-              <a
+              <Link
                 href="/contact"
                 className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

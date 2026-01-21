@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+// import path from 'path'; // May be needed for future use
 
 // Create a simple SVG placeholder function
 function createSVGPlaceholder(text, filename, width = 800, height = 600) {

@@ -38,7 +38,8 @@ export async function POST(request: NextRequest) {
 
     const contentType = request.headers.get("content-type") || "";
 
-    let formData: Record<string, any> = {};
+    let formData: Record<string, unknown> = {};
+    // voiceFile is captured but currently not used - keeping for future implementation
     let voiceFile: Buffer | null = null;
     let voiceFileName: string | null = null;
 
@@ -58,7 +59,7 @@ export async function POST(request: NextRequest) {
               size: value.size,
               type: value.type,
             });
-          } catch (error) {
+          } catch {
             return NextResponse.json(
               { success: false, error: "Invalid voice file" },
               { status: 400 }

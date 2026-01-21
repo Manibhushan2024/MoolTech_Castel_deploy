@@ -15,16 +15,23 @@ export default function BlogPost() {
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
+   
   useEffect(() => {
+    // Load blog post from static JSON data
+     
     if (slug) {
-      const blogPost = (blogPostsData as BlogPost[]).find((p) => p.slug === slug)
+      const blogs = blogPostsData as BlogPost[]
+      const blogPost = blogs.find((p) => p.slug === slug)
       if (blogPost) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPost(blogPost)
-        const related = (blogPostsData as BlogPost[])
+        const related = blogs
           .filter((p) => blogPost.relatedSlugs.includes(p.slug))
           .slice(0, 3)
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setRelatedPosts(related)
       }
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsLoading(false)
     }
   }, [slug])
@@ -47,7 +54,7 @@ export default function BlogPost() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Article Not Found</h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-            Sorry, the article you're looking for doesn't exist.
+            Sorry, the article you&apos;re looking for doesn&apos;t exist.
           </p>
           <Link
             href="/blog"

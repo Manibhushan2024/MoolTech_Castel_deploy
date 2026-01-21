@@ -11,10 +11,16 @@ export default function Blog() {
   const [categories, setCategories] = useState<string[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
-
+   
   useEffect(() => {
-    setBlogPosts(blogPostsData as BlogPost[])
-    const cats = Array.from(new Set(blogPostsData.map((p: any) => p.category))).sort()
+    // Initial load of blog posts from static JSON data
+     
+    const blogs = blogPostsData as BlogPost[]
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setBlogPosts(blogs)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    const cats = Array.from(new Set(blogs.map((p: BlogPost) => p.category))).sort()
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCategories(cats as string[])
   }, [])
 

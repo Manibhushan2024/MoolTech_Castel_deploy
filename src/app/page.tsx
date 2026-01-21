@@ -27,7 +27,7 @@ export default function Home() {
               </h2>
               
               <p className="text-gray-600 dark:text-gray-400 mb-4 text-lg leading-relaxed">
-                With over 10 years of excellence in vertical transportation, CastleElevator has become India's most trusted name in elevator solutions. We specialize in providing safe, reliable, and modern elevator systems for residential, commercial, and industrial buildings.
+                With over 10 years of excellence in vertical transportation, CastleElevator has become India&apos;s most trusted name in elevator solutions. We specialize in providing safe, reliable, and modern elevator systems for residential, commercial, and industrial buildings.
               </p>
               
               <p className="text-gray-600 dark:text-gray-400 mb-4 text-lg leading-relaxed">
@@ -35,7 +35,7 @@ export default function Home() {
               </p>
               
               <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg leading-relaxed">
-                At CastleElevator, we are committed to the highest safety standards, innovative technology, and exceptional customer service. Whether it's a new installation, routine maintenance, or emergency support, we ensure your elevators run smoothly 24/7.
+                At CastleElevator, we are committed to the highest safety standards, innovative technology, and exceptional customer service. Whether it&apos;s a new installation, routine maintenance, or emergency support, we ensure your elevators run smoothly 24/7.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
@@ -85,7 +85,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Our Services</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              From installation to maintenance, we offer comprehensive elevator solutions tailored to your building's needs. Our services ensure maximum uptime and safety for your property.
+              From installation to maintenance, we offer comprehensive elevator solutions tailored to your building&apos;s needs. Our services ensure maximum uptime and safety for your property.
             </p>
           </div>
           
@@ -211,7 +211,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Why Choose CastleElevator?</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              With industry certifications, experienced engineers, and proven track record, we're the most trusted elevator partner in North India.
+              With industry certifications, experienced engineers, and proven track record, we&apos;re the most trusted elevator partner in North India.
             </p>
           </div>
 
@@ -259,7 +259,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Client Reviews & Testimonials</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Don't just take our word for it - hear what our satisfied clients across North India have to say about CastleElevator.
+              Don&apos;t just take our word for it - hear what our satisfied clients across North India have to say about CastleElevator.
             </p>
           </div>
 

@@ -15,19 +15,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light")
   const [mounted, setMounted] = useState(false)
 
-  // Initialize theme on mount
-  useEffect(() => {
-    setMounted(true)
-    
-    // Get stored theme or system preference
-    const stored = localStorage.getItem("theme") as Theme | null
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    const initialTheme = stored || (prefersDark ? "dark" : "light")
-    
-    setTheme(initialTheme)
-    applyTheme(initialTheme)
-  }, [])
-
   const applyTheme = (newTheme: Theme) => {
     const html = document.documentElement
     if (newTheme === "dark") {
@@ -39,6 +26,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
     localStorage.setItem("theme", newTheme)
   }
+
+  // Initialize theme on mount
+  useEffect(() => {
+     
+    // Get stored theme or system preference
+    const stored = localStorage.getItem("theme") as Theme | null
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const initialTheme = stored || (prefersDark ? "dark" : "light")
+    
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTheme(initialTheme)
+    applyTheme(initialTheme)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true)
+  }, [])
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light"

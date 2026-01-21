@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { VoiceRecorder } from '@/components/VoiceRecorder'
 
 type ToastType = 'success' | 'error' | 'loading'
@@ -110,7 +111,7 @@ export default function Contact() {
       <section className="bg-gradient-to-r from-blue-600 to-indigo-800 dark:from-blue-800 dark:to-indigo-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-5xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-xl opacity-90">We're here to help with your elevator needs</p>
+          <p className="text-xl opacity-90">We&apos;re here to help with your elevator needs</p>
         </div>
       </section>
 
@@ -273,18 +274,14 @@ export default function Contact() {
       {/* Blog CTA Section */}
       <section className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Want to Learn More?
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            Check out our blog for helpful articles about elevator safety, maintenance, and best practices.
-          </p>
-          <a
+          <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Learn More from Our Blog</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">Discover tips, industry insights, and best practices for elevator maintenance and safety</p>
+          <Link
             href="/blog"
-            className="inline-block bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition"
+            className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"
           >
-            Read Our Blog 📚
-          </a>
+            Visit Our Blog
+          </Link>
         </div>
       </section>
     </div>
