@@ -149,9 +149,7 @@ export default function Contact() {
                 Email Us
               </h3>
               <a
-                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=support@castelelevator.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:support@castelelevator.com"
                 className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
               >
                 support@castelelevator.com
@@ -179,7 +177,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto" id="contact-form">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 md:p-12">
               <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
                 Send Us a Message
